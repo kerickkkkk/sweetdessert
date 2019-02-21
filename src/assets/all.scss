@@ -1,0 +1,18 @@
+@import "~bootstrap/scss/functions";
+@import "./assets/helpers/_variables";
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/helpers/_extend";
+
+
+
+
+//componets
+@import "./components/_cart";
+
+//pages
+@import "./pages/_checkout";
+@import "./pages/_dashboard";
+@import "./pages/_index";
+
+
+

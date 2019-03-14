@@ -1,81 +1,82 @@
 <template>
   <div>
     <loading :active.sync="isLoading"></loading>
-    <div class="my-5 row justify-content-center">
-      <div class="col-md-6">
-        <div class="row mb-5">
-          <div class="col-md-4">
-            <h2 class="text-center p-2 bg-primary text-white ">1. 訂單填寫</h2>
+    <div class="container">
+      <div class="my-5 row justify-content-center">
+        <div class="col-md-8">
+          <div class="row pb-5">
+            <div class="col-md-4">
+              <h2 class="text-center p-2 bg-primary text-white">1. 訂單填寫</h2>
+            </div>
+            <div class="col-md-4">
+              <h2 class="text-center p-2 bg-primary text-white">2. 訂單結帳</h2>
+            </div>
+            <div class="col-md-4">
+              <h2 class="text-center p-2 text-white bg-primary" v-if="order.is_paid">3. 付款完成</h2>
+              <h2 class="text-center p-2 text-dark" v-else>3. 付款完成</h2>
+            </div>
           </div>
-          <div class="col-md-4">
-            <h2 class="text-center p-2 bg-primary text-white ">2. 訂單結帳</h2>
-          </div>
-          <div class="col-md-4">
-            <h2 class="text-center p-2  text-white bg-primary" v-if="order.is_paid"
-              >3. 付款完成</h2>
-            <h2 class="text-center p-2  text-dark " v-else>3. 付款完成</h2>  
-          </div>
-        </div>
-        <form  @submit.prevent="payOrder">
-          <table class="table table-striped ">
-            <thead>
-              <tr class="bg-secondary text-white">
-                <th>品名</th>
-                <th>數量</th>
-                <th>單價</th>
-              </tr>        
-            </thead>
-            <tbody>
-              <tr v-for="item in order.products" :key="item.id">
-                <td class="align-middle">{{ item.product.title }}</td>
-                <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
-                <td class="align-middle text-right">{{ item.final_total }}</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2" class="text-right">總計</td>
-                <td class="text-right  bg-dark text-white">
-                <strong> {{ order.total }}</strong>
-              </td>
-              </tr>
-            </tfoot>
-          </table>
+          <form @submit.prevent="payOrder">
+            <table class="table table-striped">
+              <thead>
+                <tr class="bg-secondary text-white">
+                  <th>品名</th>
+                  <th>數量</th>
+                  <th>單價</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="item in order.products" :key="item.id">
+                  <td class="align-middle">{{ item.product.title }}</td>
+                  <td class="align-middle">{{ item.qty }}/{{ item.product.unit }}</td>
+                  <td class="align-middle text-right">{{ item.final_total }}</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2" class="text-right">總計</td>
+                  <td class="text-right bg-dark text-white">
+                    <strong>{{ order.total }}</strong>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
 
-          <table class="table">
-            <tbody>
-              <tr>
-                <th width="100">Email</th>
-                <td>{{ order.user.email }}</td>
-              </tr>
-              <tr>
-                <th>姓名</th>
-                <td>{{ order.user.name }}</td>
-              </tr>
-              <tr>
-                <th>收件人電話</th>
-                <td>{{ order.user.tel }}</td>
-              </tr>
-              <tr>
-                <th>收件人地址</th>
-                <td>{{ order.user.address }}</td>
-              </tr>
-              <tr>
-                <th>付款狀態</th>
-                <td>
-                  <span v-if="!order.is_paid">尚未付款</span>
-                  <span v-else class="text-success">付款完成</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="text-right" v-if="order.is_paid === false">
-            <button class="btn btn-danger">確認付款去</button>
-          </div>
-          <div class="text-right" v-if="order.is_paid">
-            <router-link  to="/" class="btn btn-primary p-3">繼續購物</router-link>
-          </div>
-        </form>      
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th width="100">Email</th>
+                  <td>{{ order.user.email }}</td>
+                </tr>
+                <tr>
+                  <th>姓名</th>
+                  <td>{{ order.user.name }}</td>
+                </tr>
+                <tr>
+                  <th>收件人電話</th>
+                  <td>{{ order.user.tel }}</td>
+                </tr>
+                <tr>
+                  <th>收件人地址</th>
+                  <td>{{ order.user.address }}</td>
+                </tr>
+                <tr>
+                  <th>付款狀態</th>
+                  <td>
+                    <span v-if="!order.is_paid">尚未付款</span>
+                    <span v-else class="text-success">付款完成</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="text-right" v-if="order.is_paid === false">
+              <button class="btn btn-danger">確認付款去</button>
+            </div>
+            <div class="text-right" v-if="order.is_paid">
+              <router-link to="/" class="btn btn-primary">繼續購物</router-link>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
@@ -83,44 +84,47 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      orderId:'', 
-      order:{
-        user:{}
-      },     
-      isLoading:false,
-    }
+      orderId: "",
+      order: {
+        user: {}
+      },
+      isLoading: false
+    };
   },
-  methods: {    
-    getOrder(){      
-      const vm = this      
-      const api =`${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order/${vm.orderId}` 
-      vm.isLoading= true
-      this.$http.get(api).then((response) => { 
-        // console.log(response)       
-        vm.isLoading= false
-        vm.order = response.data.order
-      })
+  methods: {
+    getOrder() {
+      const vm = this;
+      const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order/${
+        vm.orderId
+      }`;
+      vm.isLoading = true;
+      this.$http.get(api).then(response => {
+        // console.log(response)
+        vm.isLoading = false;
+        vm.order = response.data.order;
+      });
     },
-    payOrder(){
-      const vm = this      
-      const api =`${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/pay/${vm.orderId}` 
-      vm.isLoading= true
-      this.$http.post(api).then((response) => { 
-        console.log(response.message) 
-        if(response.data.success){
-          
-          vm.getOrder()
-        }             
-        vm.isLoading= false        
-      })
+    payOrder() {
+      const vm = this;
+      const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/pay/${
+        vm.orderId
+      }`;
+      vm.isLoading = true;
+      this.$http.post(api).then(response => {
+        console.log(response.message);
+        if (response.data.success) {
+          vm.getOrder();
+        }
+        vm.isLoading = false;
+      });
     }
   },
   created() {
-    this.orderId=this.$route.params.orderId
-    this.getOrder()
+    this.orderId = this.$route.params.orderId;
+    this.getOrder();
     // console.log(this.orderId)
-  },
-}
+  }
+};
 </script>

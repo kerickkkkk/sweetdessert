@@ -9,7 +9,7 @@
         <tr>
           <th>coupon名稱</th>
           <th width="120">時間</th>
-          <th width="120">折扣比</th>
+          <th class="text-right" width="120">折扣比</th>
           <th width="80">折扣碼</th>
           <th width="100">是否啟用</th>
           <th class="text-center" width="160">編輯</th>
@@ -18,7 +18,7 @@
       <tbody>
         <tr v-for="item in coupons.coupons" :key="item.id">
           <td>{{item.title}}</td>
-          <td>{{item.due_date}}</td>
+          <td>{{item.due_date |day}}</td>
           <td class="text-right">{{item.percent}}</td>
           <td>{{item.code}}</td>
           <td>

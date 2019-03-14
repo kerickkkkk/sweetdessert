@@ -10,8 +10,8 @@
         <tr>
           <th width="120">分類</th>
           <th>產品名稱</th>
-          <th width="120">原價</th>
-          <th width="80">售價</th>
+          <th class="text-right" width="120">原價</th>
+          <th class="text-right" width="80">售價</th>
           <th width="100">是否啟用</th>
           <th class="text-center" width="160">編輯</th>
         </tr>
@@ -235,7 +235,8 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">是否刪除
+          <div class="modal-body">
+            是否刪除
             <strong class="text-danger">{{ tempProduct.title }}</strong> 商品(刪除後將無法恢復)。
           </div>
           <div class="modal-footer">

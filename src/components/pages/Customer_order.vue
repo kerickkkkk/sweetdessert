@@ -81,14 +81,19 @@
                   </div>
                 </div>
                 <div class="card-footer d-flex">
-                  <button
+                  <!-- <button
                     type="button"
                     class="btn btn-outline-secondary btn-sm"
                     @click.prevent="getproduct(item.id)"
                   >
                     <i class="fas fa-spinner fa-spin" v-if="item.id === status.readmoreloadingItem"></i>
                     查看更多
-                  </button>
+                  </button>-->
+                  <router-link
+                    class="btn btn-outline-secondary btn-sm"
+                    :to="`/product/${item.id}`"
+                  >查看更多</router-link>
+                  <!-- vm.$router.push(`/payconfirm/${response.data.orderId}`); -->
                   <button
                     type="button"
                     class="btn btn-outline-danger btn-sm ml-auto"
@@ -164,9 +169,7 @@
               class="bg-cover"
               style="height: 50vh; "
               :style="{backgroundImage: `url(${product.imageUrl})`}"
-            >
-              <!--:style="{backgroundImage: `url(${product.imageUrl})`}"好了再加上去-->
-            </div>
+            ></div>
             <p>{{product.content}}</p>
             <div class="d-flex justify-content-between align-items-baseline">
               <div

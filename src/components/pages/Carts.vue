@@ -2,9 +2,9 @@
   <div>
     <loading :active.sync="isLoading"></loading>
 
-    <div class="wrap vh-100 d-flex justify-content-center align-items-center">
+    <div class="wrap p-3 d-flex justify-content-center align-items-center">
       <div class="col-md-6">
-        <h3 class="h2 text-center text-primary mb-3">
+        <h3 class="h2 text-center text-primary pb-3">
           <strong>購物車內容</strong>
         </h3>
         <table class="table table-striped table-hover">
@@ -46,7 +46,7 @@
             </tr>
           </tfoot>
         </table>
-        <div class="input-group mb-3 input-group-sm">
+        <div class="input-group pb-3 input-group-sm">
           <input
             type="text"
             class="form-control"
@@ -64,7 +64,7 @@
         </div>
         <div class="row">
           <div class="col-md-6">
-            <router-link to="/customer_order" class="btn btn-outline-primary btn-block">繼續選購</router-link>
+            <router-link to="/customer_order" class="btn btn-outline-primary btn-block mb-2">繼續選購</router-link>
           </div>
           <div class="col-md-6">
             <router-link to="/checkout" class="btn btn-primary btn-block">結帳去</router-link>

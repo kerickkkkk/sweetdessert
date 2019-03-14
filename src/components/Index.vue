@@ -3,10 +3,10 @@
     <CustomerNavbar></CustomerNavbar>
     <CustomerCarousel></CustomerCarousel>
     <section class="bg-secondary bg-cover section_threeintroduct">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row text-white text-center">
           <div class="col-md-4">
-            <div class="section_threeintroduct_box section_threeintroduct_box_1 p-5 bg-cover">
+            <div class="section_threeintroduct_box section_threeintroduct_box_1 p-5 bg-cover h-100">
               <div class="display-2 mb-3">
                 <i class="fas fa-birthday-cake"></i>
               </div>
@@ -16,7 +16,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="section_threeintroduct_box section_threeintroduct_box_2 p-5 bg-cover">
+            <div class="section_threeintroduct_box section_threeintroduct_box_2 p-5 bg-cover h-100">
               <div class="display-2 mb-3">
                 <i class="fas fa-coffee"></i>
               </div>
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="section_threeintroduct_box section_threeintroduct_box_3 p-5 bg-cover">
+            <div class="section_threeintroduct_box section_threeintroduct_box_3 p-5 bg-cover h-100">
               <div class="display-2 mb-3">
                 <i class="fas fa-fill-drip"></i>
               </div>
@@ -52,7 +52,7 @@
       <section
         class="section_dessert section_dessert_maka p-5 bg-cover text-white row align-items-center"
       >
-        <div class="col-md-3 offset-md-2">
+        <div class="col-lg-4 offset-lg-2">
           <h3 class="text-success h1">金星馬卡龍</h3>
           <p
             class="h4 lh"
@@ -67,7 +67,7 @@
       <section
         class="section_dessert section_dessert_muffin p-5 bg-cover row text-white align-items-center"
       >
-        <div class="col-md-3 offset-md-7">
+        <div class="col-lg-4 offset-lg-6">
           <h3 class="text-warning h1">太陽鬆餅</h3>
           <p
             class="h4 lh"
@@ -82,7 +82,7 @@
       <section
         class="section_dessert section_dessert_donut p-5 bg-cover text-white row align-items-center"
       >
-        <div class="col-md-3 offset-md-3">
+        <div class="col-lg-4 offset-lg-2">
           <h3 class="text-light h1">土星甜甜圈</h3>
           <p
             class="h4 lh"

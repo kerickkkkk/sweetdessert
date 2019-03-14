@@ -15,7 +15,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in carts.carts" >
+          <tr v-for="item in carts.carts" :key="item.id" >
             <td class="align-middle">
               <button type="button" class="btn btn-outline-danger btn-sm"
                 @click.prevent="delCartItem(item.id)"                

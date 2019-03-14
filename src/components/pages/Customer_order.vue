@@ -47,7 +47,7 @@
         <div class="col-md-10">
           <div class="row mt-4">
             <div class="col-lg-4 col-md-6 mb-4" v-for="item in filterproduct" :key="item.id">
-              <div class="card border-0 shadow-sm">
+              <div class="card border-0 shadow-sm h-100">
                 <div
                   style="height: 150px; background-size: cover; background-position: center"
                   :style="{backgroundImage: `url(${item.imageUrl})`}"
